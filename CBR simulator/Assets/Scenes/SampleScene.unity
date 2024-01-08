@@ -1946,8 +1946,8 @@ MonoBehaviour:
   - {fileID: 804922416811548898}
   - {fileID: 807611837206707826}
   blinkers:
-  - {fileID: 1438065887}
   - {fileID: 530300478}
+  - {fileID: 1438065887}
   blinkerMaterials:
   - {fileID: 2100000, guid: 0ba8a5770702563439f26c5be0856664, type: 2}
   - {fileID: 2100000, guid: f50307084f64aa44a8b7b3fa3364b0f5, type: 2}

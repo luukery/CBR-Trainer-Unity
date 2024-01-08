@@ -1,6 +1,6 @@
 public enum TURNSIGNAL
 {
-    NONE,
     LEFT,
-    RIGHT
+    RIGHT,
+    NONE
 }

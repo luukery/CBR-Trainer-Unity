@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private MeshRenderer[] blinkers;
     [SerializeField] private Material[] blinkerMaterials;
     
-    private int gearShift = 1;
 
 
 
@@ -21,13 +20,11 @@ public class PlayerMovement : MonoBehaviour
 
     private TURNSIGNAL signal;
     public TURNSIGNAL SSignal { get { return signal; } private set { }}
+    
     private bool isBlinking;
+    public bool IsBlinking { get { return IsBlinking; } private set { } }
 
-
-    void Start()
-    {
-        
-    }
+  
 
     private void Update()       //update is triggering every frame
     {
@@ -38,11 +35,17 @@ public class PlayerMovement : MonoBehaviour
             currentBreakForce = 0;
 
         //blinker input
+
         if (Input.GetMouseButtonDown(0))
-            Blinker(TURNSIGNAL.LEFT);
+        {
+           SetBlinker(0);
+
+        }
 
         if (Input.GetMouseButtonDown(1))
-            Blinker(TURNSIGNAL.RIGHT);
+        {
+            SetBlinker(1);
+        }
 
     }
 
@@ -59,6 +62,20 @@ public class PlayerMovement : MonoBehaviour
         currentTurnAngle = maxTurnAngle * Input.GetAxis("Horizontal");
     }
 
+
+    void SetBlinker(int b)
+    {
+        IsBlinking = !IsBlinking;
+
+        if (IsBlinking)
+        {
+            blinkers[b].material = blinkerMaterials[1];
+        }
+        else
+        {
+            blinkers[b].material = blinkerMaterials[0];
+        }
+    }
 
     void Speed()
     {
@@ -97,40 +114,11 @@ public class PlayerMovement : MonoBehaviour
        
     }
 
-    void Blinker(TURNSIGNAL ts)
-    {
-        for (int i = 0; i < blinkers.Length; i++)
-        {
-            blinkers[i].material = blinkerMaterials[0];
-        }
+  
 
-        if (!isBlinking)
-        {
-            isBlinking = true;
-            switch (ts)
-            {
-                case TURNSIGNAL.RIGHT:
-                    StartCoroutine(Blinker(0));
-                    break;
+  
 
-                case TURNSIGNAL.LEFT:
-                    StartCoroutine(Blinker(1));
-                    break;
-            }
-        }
-    }
-
-    IEnumerator Blinker(int b)
-    {
-        blinkers[b].material = blinkerMaterials[1];
-        yield return new WaitForSeconds(0.5f);
-        blinkers[b].material = blinkerMaterials[0];
-    }
-
-    void Gearshift()
-    {
-
-    }
+  
     
 
 }
