@@ -113,8 +113,6 @@
 -define:ROSLYN_ANALYZER_FIX
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
--r:"C:/Users/luukh/Desktop/Projects/CBR simulator/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll"
--r:"C:/Users/luukh/Desktop/Projects/CBR simulator/Library/PackageCache/com.unity.ide.rider@3.0.26/Rider/Editor/JetBrains.Rider.PathLocator.dll"
 -r:"C:/Users/luukh/Desktop/Unity solo projects_tasks/2021.3.33f1/Editor/Data/Managed/UnityEditor.Graphs.dll"
 -r:"C:/Users/luukh/Desktop/Unity solo projects_tasks/2021.3.33f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
 -r:"C:/Users/luukh/Desktop/Unity solo projects_tasks/2021.3.33f1/Editor/Data/Managed/UnityEngine/UnityEditor.DeviceSimulatorModule.dll"
@@ -328,6 +326,8 @@
 -r:"C:/Users/luukh/Desktop/Unity solo projects_tasks/2021.3.33f1/Editor/Data/UnityReferenceAssemblies/unity-4.8-api/System.Transactions.dll"
 -r:"C:/Users/luukh/Desktop/Unity solo projects_tasks/2021.3.33f1/Editor/Data/UnityReferenceAssemblies/unity-4.8-api/System.Xml.dll"
 -r:"C:/Users/luukh/Desktop/Unity solo projects_tasks/2021.3.33f1/Editor/Data/UnityReferenceAssemblies/unity-4.8-api/System.Xml.Linq.dll"
+-r:"C:/Users/luukh/Documents/GitHub/CBR-Trainer-Unity/CBR simulator/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll"
+-r:"C:/Users/luukh/Documents/GitHub/CBR-Trainer-Unity/CBR simulator/Library/PackageCache/com.unity.ide.rider@3.0.26/Rider/Editor/JetBrains.Rider.PathLocator.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.TestRunner.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.TestRunner.ref.dll"
