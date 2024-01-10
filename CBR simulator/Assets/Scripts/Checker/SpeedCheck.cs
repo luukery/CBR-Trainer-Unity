@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpeedCheck : BaseCheck
 {
-    public int speedLimit;
+    [SerializeField] private int speedLimit;
     private bool passingSpeedLimitTest;
 
     private void Start()
@@ -25,11 +25,17 @@ public class SpeedCheck : BaseCheck
     {
         yield return new WaitForSeconds(5);
 
-        if(player.speedKMH > speedLimit + 5)
+        if (player)
         {
-            hasSuceeded = false;
+            if (player.speedKMH > speedLimit + 5)
+            {
+                hasSuceeded = false;
+            }
         }
+
+        passingSpeedLimitTest = false;
+
     }
 
- 
+
 }

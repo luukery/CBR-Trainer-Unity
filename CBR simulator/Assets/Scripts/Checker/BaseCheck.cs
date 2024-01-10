@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider))]
 public abstract class BaseCheck : MonoBehaviour
 {
-    protected bool hasSuceeded;
     protected PlayerMovement player;
     protected bool hasEntered;
+
+   [SerializeField] public bool hasSuceeded { get; set; }
 
     protected void Update()
     {
@@ -22,10 +24,9 @@ public abstract class BaseCheck : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         hasEntered = false;
-        player = null;
-
-        print(hasSuceeded);
     }
+
+   
 
     protected abstract void isChecking();
 }

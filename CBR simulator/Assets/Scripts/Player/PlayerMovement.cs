@@ -8,14 +8,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private WheelCollider[] wheels;    //0 and 1 are the front wheels
     [SerializeField] private MeshRenderer[] blinkers;
     [SerializeField] private Material[] blinkerMaterials;
-    [SerializeField] private TextMeshProUGUI speedCounterCanvas;
+    [SerializeField] private TextMeshProUGUI speedCounterText;
 
     public const float maxTurnAngle = 25;
+    private const float acceleration = 1000f;
+    private const float breakingForce = 500f;
 
-    private float acceleration = 1000f;
-    private float breakingForce = 500f;
     private float currentAcceleration;
     private float currentBreakForce;
+    private Rigidbody rb;
 
     public float currentTurnAngle { get; private set; }
     public int speedKMH { get; private set; }
@@ -26,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         turnSignal = TURNSIGNAL.NONE;
+        rb = GetComponent<Rigidbody>();
     }
 
     private void Update()       //update is triggering every frame
@@ -64,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
    
-    void SetBlinker(int b)
+    private void SetBlinker(int b)
     {
         isBlinking = !isBlinking;       
         turnSignal = (TURNSIGNAL)b;
@@ -79,28 +81,30 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void Acceleration()
+    private void Acceleration()
     {
         //input get getaxis is 0, 1 or -1. Because of this
         currentAcceleration = acceleration * Input.GetAxis("Vertical");
         ShowSpeed();
     }
 
-    void ShowSpeed()
+    private void ShowSpeed()
     {
-        float rpm = wheels[0].rpm;
-        float speed = (rpm * 2 * Mathf.PI * 0.35f * 60) / 100000;
+        float speed = rb.velocity.magnitude * 3.6f;
+
+        //float rpm = wheels[0].rpm;
+        //float speed = (rpm * 2 * Mathf.PI * 0.35f * 60) / 1000;
 
         speedKMH = Mathf.RoundToInt(speed);
-        speedCounterCanvas.text = Mathf.Abs(speedKMH).ToString();
+        speedCounterText.text = Mathf.Abs(speedKMH).ToString();
     }
 
-    void Break()
+    private void Break()
     {
         currentBreakForce = breakingForce;
     }
 
-    void WheelsUpdate()
+    private void WheelsUpdate()
     {
         for (int i = 0; i < 1; i++)
         {
@@ -114,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void Steering()
+    private void Steering()
     {
         for (int i = 0; i < 1; i++)
         {
