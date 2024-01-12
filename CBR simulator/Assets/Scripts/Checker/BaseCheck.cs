@@ -8,7 +8,7 @@ public abstract class BaseCheck : MonoBehaviour
     protected PlayerMovement player;
     protected bool hasEntered;
 
-   [SerializeField] public bool hasSuceeded { get; set; }
+   public bool hasSuceeded { get; set; }
 
     protected void Update()
     {
