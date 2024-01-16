@@ -24,7 +24,7 @@ public class SpeedCheck : BaseCheck
 
     IEnumerator CheckSpeed()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
 
         if (player)
         {
