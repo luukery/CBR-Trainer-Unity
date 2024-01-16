@@ -15,9 +15,14 @@ public class LevelComplete : BaseCheck
     private bool FinishedLevel;
 
     private int percentageComplete;
-    private bool[] allChecks;
+    public bool[] allChecks;
     private LEVELRATING rating;
 
+
+    private void Start()
+    {
+        hasSuceeded = true;
+    }
     protected override void isChecking()
     {
         if(!FinishedLevel)

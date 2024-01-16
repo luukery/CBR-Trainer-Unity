@@ -13,6 +13,7 @@ public class SpeedCheck : BaseCheck
     }
     protected override void isChecking()
     {
+        
         if (player.speedKMH > speedLimit + 3 && !passingSpeedLimitTest)
         {
             passingSpeedLimitTest = true;
