@@ -36,7 +36,10 @@ public class LevelComplete : BaseCheck
     {
         allChecks = GetAllChecksInScene();
         percentageComplete = CalculatePercentage(allChecks.Length);
+
+
         rating = Rating(percentageComplete);
+
 
         print("percentageComplete = " + percentageComplete);
         print("rating = " + rating);
