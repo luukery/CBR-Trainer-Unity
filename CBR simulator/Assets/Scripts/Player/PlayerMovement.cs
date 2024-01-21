@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Material[] blinkerMaterials;
     [SerializeField] private TextMeshProUGUI speedCounterText;
 
-    public const float maxTurnAngle = 25;
+    public const float maxTurnAngle = 35;
     private const float acceleration = 1000f;
     private const float breakingForce = 500f;
 
