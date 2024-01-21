@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 enum LEVELRATING
@@ -35,7 +37,7 @@ public class LevelComplete : BaseCheck
     private void CompleteLevel()
     {
         allChecks = GetAllChecksInScene();
-        percentageComplete = CalculatePercentage(allChecks.Length);
+        percentageComplete = CalculatePercentage(allChecks.Length) + 80;
 
 
         rating = Rating(percentageComplete);
@@ -54,7 +56,14 @@ public class LevelComplete : BaseCheck
 
         for (int i = 0; i < b.Length; i++)
         {
-            c.Add(b[i].hasSuceeded); 
+            GameObject currentGameObject = b[i].gameObject;
+
+            print(currentGameObject);
+        }
+
+        for (int i = 0; i < b.Length; i++)
+        {
+            c.Add(b[i].hasSuceeded);
         }
 
         bool[] q = c.ToArray();
@@ -81,7 +90,7 @@ public class LevelComplete : BaseCheck
         switch (percentage)
         {
             case int n when (n < 50):
-                return LEVELRATING.BAD;
+                return LEVELRATING.AVERAGE;
 
             case int n when (n >= 50 && n < 80):
                 return LEVELRATING.AVERAGE;

@@ -8,12 +8,15 @@ public abstract class BaseCheck : MonoBehaviour
     protected PlayerMovement player;
     protected bool hasEntered;
 
-   public bool hasSuceeded { get; set; }
+    public bool hasSuceeded { get; set; }
+    public bool hasSucceeded2;
 
     protected void Update()
     {
         if (hasEntered)
             isChecking();
+
+        hasSucceeded2 = hasSuceeded;
     }
     private void OnTriggerEnter(Collider other)
     {
